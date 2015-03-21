@@ -1,0 +1,28 @@
+{
+  "name": "lia/kernel",
+  "description": "Lia Framework : Kernel",
+  "homepage": "https://github.com/leiha/lia-kernel/",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Leiha Sellier",
+      "email": "leiha.sellier@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": { "Lia\\KernelBundle\\": "src/" }
+  },
+  "repositories": [
+    {
+	
+    }
+  ],
+  "require": {
+        
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.0.x-dev"
+    }
+  }
+}

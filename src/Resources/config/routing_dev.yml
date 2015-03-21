@@ -1,0 +1,3 @@
+dev_lia_kernel_tests_default:
+    path: /default
+    defaults: { _controller: LiaKernelCoreBundle:Tests/Default:default}

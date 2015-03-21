@@ -1,0 +1,21 @@
+parameters:
+#    lia.listener.injection.class: Lia\KernelBundle\Listener\AwareInjectionListener
+    lia.factory.constraints.class: Lia\KernelBundle\DependencyInjection\ConstraintsFactory
+    lia.factory.cache.class: Lia\KernelBundle\DependencyInjection\CacheFactory
+    lia.factory.cache.directory.class: Lia\KernelBundle\Cache\DirectoryCache
+
+services:
+#    lia.listener.injection:
+#        class: %lia.listener.injection.class%
+#        arguments: []
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+    lia.factory.constraints:
+        class: %lia.factory.constraints.class%
+        arguments: [@service_container]
+    lia.factory.cache:
+            class: %lia.factory.cache.class%
+            arguments: [@service_container]
+    lia.factory.cache.directory:
+        class: %lia.factory.cache.directory.class%
+        arguments: [@service_container]
