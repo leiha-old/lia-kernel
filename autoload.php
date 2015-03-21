@@ -4,7 +4,7 @@ function __getLiaAutoloadLoader($rootDir, $pathOfAutoloadConfig=''){
     require 'LiaAutoLoad.php';
 
     LiaAutoLoad::setPathOfRoot  ($rootDir);
-    LiaAutoLoad::setComposerPath(__DIR__ . '/../../../composer/');
+    LiaAutoLoad::setComposerPath(__DIR__ . '/../../composer/');
     if($pathOfAutoloadConfig){
         LiaAutoLoad::setPathOfAutoloadConfig($pathOfAutoloadConfig);
     }
