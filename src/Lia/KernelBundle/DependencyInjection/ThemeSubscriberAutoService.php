@@ -2,8 +2,8 @@
 
 namespace Lia\KernelBundle\DependencyInjection;
 
-use Lia\Kernel\ThemeBundle\Core\AssetBag;
-use Lia\Kernel\ThemeBundle\Core\SubscriberBase;
+use Lia\ThemeBundle\Core\AssetBag;
+use Lia\ThemeBundle\Core\SubscriberBase;
 
 class ThemeSubscriberAutoService
     extends SubscriberBase
