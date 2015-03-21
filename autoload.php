@@ -1,8 +1,6 @@
 <?php
 
 function __getLiaAutoloadLoader($rootDir, $pathOfAutoloadConfig=''){
-    require 'LiaAutoLoad.php';
-
     LiaAutoLoad::setPathOfRoot  ($rootDir);
     LiaAutoLoad::setComposerPath(__DIR__ . '/../../composer/');
     if($pathOfAutoloadConfig){
@@ -81,7 +79,7 @@ class LiaAutoLoad {
 
     private static function getPathOfVendor(){
         if(!self::$pathOfVendor){
-            self::$pathOfVendor = realpath(__DIR__ . '/../../..');
+            self::$pathOfVendor = realpath(__DIR__ . '/../..');
         }
         return self::$pathOfVendor;
     }
