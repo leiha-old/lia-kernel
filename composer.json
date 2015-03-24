@@ -13,9 +13,7 @@
     "psr-0": { "Lia\\KernelBundle\\": "src/" }
   },
   "repositories": [
-    {
-	
-    }
+
   ],
   "require": {
         
