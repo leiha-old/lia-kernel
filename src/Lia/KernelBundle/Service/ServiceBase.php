@@ -41,7 +41,8 @@ abstract class ServiceBase
     /**
      * @param array $config
      */
-    public function setConfiguration(array $config){
+    public function setConfiguration(array $config)
+    {
         $this->config = new CollectionBag($config);
     }
 }

@@ -32,7 +32,7 @@ class ThemeSubscriberAutoService
             'lia.Class.js',
             'lia.Interface.js',
             'lia.Exception.js',
-            //'__tests__/lia.Class.js'
+            '__tests__/lia.Class.js'
 
         ]);
     }
