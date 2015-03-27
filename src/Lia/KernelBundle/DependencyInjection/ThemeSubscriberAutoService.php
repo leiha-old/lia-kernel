@@ -7,16 +7,7 @@ use Lia\ThemeBundle\Core\SubscriberBase;
 
 class ThemeSubscriberAutoService
     extends SubscriberBase
-
 {
-    /**
-     * @return string
-     */
-    public function getPathOfAsset()
-    {
-        return '/symfony/web/bundles/liakernelcore/';
-    }
-
     /**
      * Allows to set the assets for the bundle
      * They will be on the top of the page
