@@ -10,14 +10,6 @@ class ThemeSubscriberAutoService
 
 {
     /**
-     * @return string
-     */
-    public function getPathOfAsset()
-    {
-        return '/symfony/web/bundles/liakernelcore/';
-    }
-
-    /**
      * Allows to set the assets for the bundle
      * They will be on the top of the page
      * @param AssetBag $bag
