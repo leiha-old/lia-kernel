@@ -21,13 +21,8 @@ abstract class ServiceBase
     private $bundleName;
 
     /**
-     * @param ContainerInterface $container
+     * @return string
      */
-    public function __construct(ContainerInterface $container)
-    {
-        $this->setContainer($container);
-    }
-
     protected function getBundleName()
     {
         if(!$this->bundleName) {
