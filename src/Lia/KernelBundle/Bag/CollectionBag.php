@@ -19,12 +19,33 @@ class CollectionBag
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode($this->__sleep());
+    }
+
+    /**
+     * @return array
+     */
+    public function __sleep()
+    {
+        return $this->items;
+    }
+
+    /**
      * @param string $itemName
+     * @param bool $silent
      * @return bool
      */
-    public function has($itemName)
+    public function has($itemName, $silent=true)
     {
-        return array_key_exists($itemName, $this->items);
+        $exist = array_key_exists($itemName, $this->items);
+        if(!$silent && !$exist) {
+            //throw new LogicException('Element [%1$s] not registered !', array($itemName));
+        }
+        return $exist;
     }
 
     /**
@@ -165,5 +186,35 @@ class CollectionBag
     public function jsonSerialize()
     {
         return $this->items;
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Retrieve an external iterator
+     * @link http://php.net/manual/en/iteratoraggregate.getiterator.php
+     * @return Traversable An instance of an object implementing <b>Iterator</b> or
+     * <b>Traversable</b>
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->items);
+    }
+
+    /**
+     * Returns all keys of elements
+     *
+     * @return array
+     */
+    public function keys() {
+        return array_keys($this->items);
+    }
+
+    /**
+     * Returns the number of elements.
+     *
+     * @return int The number of elements
+     */
+    public function count() {
+        return count($this->items);
     }
 }

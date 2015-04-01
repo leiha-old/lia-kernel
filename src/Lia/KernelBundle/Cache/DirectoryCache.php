@@ -5,52 +5,40 @@ namespace Lia\KernelBundle\Cache;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class DirectoryCache
+    extends CacheBase
 {
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * @var string
-     */
-    private $cacheDir;
-
     /**
      * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container){
-        $this->container = $container;
-        $this->cacheDir  = $this->container->getParameter('kernel.cache_dir');
-    }
-
-    public function setSubPath($cacheDir){
-        $this->cacheDir .= $cacheDir;
-        return $this;
+        parent::__construct($container);
+        $this->cacheDir = $this->container->getParameter('kernel.cache_dir');
     }
 
     /**
-     * @param string $file
+     * @param string $identifier
      * @param mixed  $data
      * @return int
      */
-    public function set($file, $data)
+    public function set($identifier, $data)
     {
-        $dir = $this->cacheDir.dirname($file);
+        $dir = $this->cacheDir.dirname($identifier);
         if(!is_dir($dir)){
             mkdir($dir, 0755);
         }
-        return file_put_contents($this->cacheDir.$file, serialize($data));
+        return file_put_contents($this->cacheDir.$identifier, serialize($data));
     }
 
     /**
-     * @param string $file
+     * @param string $identifier
      * @return mixed
      */
-    public function get($file)
+    public function get($identifier)
     {
-        if(is_file($file)){
-            return unserialize(file_get_contents($file));
+        $path = $this->cacheDir.$identifier;
+        if(is_file($path))
+        {
+            return unserialize(file_get_contents($path));
         }
         return false;
     }

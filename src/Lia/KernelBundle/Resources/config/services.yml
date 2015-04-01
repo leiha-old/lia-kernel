@@ -3,19 +3,22 @@ parameters:
     lia.factory.constraints.class: Lia\KernelBundle\DependencyInjection\ConstraintsFactory
     lia.factory.cache.class: Lia\KernelBundle\DependencyInjection\CacheFactory
     lia.factory.cache.directory.class: Lia\KernelBundle\Cache\DirectoryCache
+    lia.factory.cache.session.class: Lia\KernelBundle\Cache\SessionCache
+    lia.factory.cache.cookie.class: Lia\KernelBundle\Cache\CookieCache
 
 services:
-#    lia.listener.injection:
-#        class: %lia.listener.injection.class%
-#        arguments: []
-#        tags:
-#            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
     lia.factory.constraints:
         class: %lia.factory.constraints.class%
         arguments: [@service_container]
     lia.factory.cache:
-            class: %lia.factory.cache.class%
-            arguments: [@service_container]
+        class: %lia.factory.cache.class%
+        arguments: [@service_container]
     lia.factory.cache.directory:
         class: %lia.factory.cache.directory.class%
+        arguments: [@service_container]
+    lia.factory.cache.session:
+        class: %lia.factory.cache.session.class%
+        arguments: [@service_container]
+    lia.factory.cache.cookie:
+        class: %lia.factory.cache.cookie.class%
         arguments: [@service_container]
